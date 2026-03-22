@@ -1,6 +1,6 @@
 DEPENDENCIES := venv
 TOPTARGETS := run clean
-SUBDIRS := python_experiment_example
+SUBDIRS := python_experiment_example r_experiment_example
 
 project_directory=$(shell pwd)
 export project_directory
