@@ -1,0 +1,88 @@
+%section-start tex header
+\documentclass{article}
+%section-start use packages
+\usepackage{booktabs} % needed for the tables somehow
+\usepackage{csvsimple} % use csv as tables
+\usepackage{amsmath} %Math typesetting
+\usepackage{geometry} %change page dimensions
+\usepackage{float} %allows you to place figured inline
+\usepackage{hyperref} % add hyperlinks
+\usepackage{graphicx} % insert immages
+\usepackage[backend=biber]{biblatex} % handle your citations
+%section-end
+\geometry{a4paper, margin=1in}
+\addbibresource{refs.bib}
+%section-end
+%section-start title page
+\title{TODO Insert title of statistical report here}
+\author{Hannah Nelson}
+\date{TODO Insert date of statistical report here}
+\begin{document}
+\maketitle
+%section-end
+\section{Examples} %section-start
+    TODO delete examples section
+    \subsection{Example of including csv data table} %section-start
+        \csvautotabular{python_experiment_example/example_data_table.csv}
+    %section-end
+    \subsection{Example of figure and typesetting} %section-start
+        \ref{fig:type_interaction_model}
+        \begin{figure}
+            \begin{align*}
+                &Z_i = Y_i m_i\\
+                &Y_i \sim \text{Binomial}(m_i, \pi_i)/m_i\\
+                &cauchit(\pi_i) = \eta_i\\
+                &\eta_i = \beta_0 +\\
+                &+\beta_1 I(T_i="Fictional Novel")
+                +\beta_2 I(T_i="Medical")\\
+                &+\beta_3 W_i
+                +\beta_4 I(\text{Classifier}_i="B")\\
+                &+\beta_5 I(\text{Classifier}_i="B") * I(T_i="Fictional Novel")\\
+                &+\beta_6 I(\text{Classifier}_i="B") * I(T_i="Medical")
+            \end{align*}
+            \caption{Article type interaction model. This model is identical to the baseline model with the exception that there are two aditional linear terms to $\eta_i$. $\beta_4$ represents the differencence in cauchit probability of a positive between a text under Calssifier A and Classifier B. $\beta_5$ represents the difference in the value of cauchit probability of a positive between Classifier A and Classifier B, between a fictional novel and an art history novel of the same length. $\beta_6$ is similar to $\beta_5$ except for medical articles instead of fictional novels}
+            \label{fig:type_interaction_model}
+        \end{figure}
+    %section-end
+    \subsection{Example of fancy looking tables} %section-start
+        %section-start coefficients table
+        \begin{table}[h]
+        \centering
+        \caption{Interaction Model Regression Coefficients Summary}
+        \label{tab:regression}
+        \begin{tabular}{lrrrr}
+        \toprule
+        Beta & Term Name & Estimate & Std. Error & p-value \\
+        \midrule
+        $\beta_0$    &Intercept & 0.586 & 0.172 & 6e-4\\
+        $\beta_1$    &Article Type: Fictional Novel & -0.647 & 0.175 & 2e-4\\
+        $\beta_2$    &Article Type: Medical & -7.501 & 1.685 & 8e-6\\
+            $\beta_3$    &Words (thousands) & 0.005 & 0.004 & 0.145 \\
+        $\beta_4$    &ClassifierB & -0.274 & 0.194 & 0.157 \\
+        $\beta_5$    &Words:ClassifierB & 0.032 & 0.012 & 0.011 \\
+        \bottomrule
+        \end{tabular}
+        \end{table}
+        %section-end
+    %section-end
+    \subsection{Example citations} %section-start
+        Several software packages were used in this statistical analysis graphing used MatPlotLib \cite{Hunter:2007} and boot \cite{boot} \cite{boot_book}. Data processing was carried out with dplyr \cite{dplyr} \cite{dplyr_book}, tidyr\cite{tidyr}, and scipy \cite{reback2020pandas} \cite{mckinney-proc-scipy-2010}. Coding support used the Qwen 3.5 language model \cite{qwen3.5}.
+        \printbibliography
+        %section-end
+%section-end
+\section{Introduction} %section-start
+%section-end
+\section{Methods} %section-start
+%section-end
+\section{Results} %section-start
+%section-end
+\section{Interpretation} %section-start
+%section-end
+\section{Citations} %section-start
+%section-end
+\section{Apendix} %section-start
+%section-start data table
+\subsection{Data}
+%section-end
+%section-end
+\end{document}
